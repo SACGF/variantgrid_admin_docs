@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 VariantGrid Admin documentation
-=========================
+===============================
 
 This documentation is for admins who configure a VariantGrid server.
 
@@ -15,7 +15,9 @@ For normal users, see [VariantGrid user documentation](http://variantgrid.readth
    :maxdepth: 2
    :caption: Sequencing:
 
-   analysis/scanning_and_auto_loading_sequencing_files
+   sequencing/scanning_and_auto_loading_sequencing_files
+   sequencing/sample_sheet
+   sequencing/enrichment_kits
 
 .. toctree::
    :maxdepth: 2
@@ -56,7 +58,7 @@ For normal users, see [VariantGrid user documentation](http://variantgrid.readth
    :caption: Classification:
 
    classification/classification_report
-   classification/classification_sharing
+   classification/hgvs_issues
 
 
 Indices and tables

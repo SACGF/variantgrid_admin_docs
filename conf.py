@@ -16,8 +16,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'VariantGrid'
-copyright = '2019, CCB ACRF Cancer Genomics Facility'
+project = 'VariantGrid Admin Docs'
+copyright = '2021, CCB ACRF Cancer Genomics Facility'
 author = 'CCB ACRF Cancer Genomics Facility'
 
 # -- General configuration ---------------------------------------------------

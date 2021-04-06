@@ -8,8 +8,7 @@ VariantGrid Admin documentation
 
 This documentation is for admins who configure a VariantGrid server.
 
-For normal users, see [VariantGrid user documentation](http://variantgrid.readthedocs.io) or for programmers, the [wiki technical guide](https://github.com/SACGF/variantgrid/wiki)
-
+For normal users, see [VariantGrid user documentation](http://variantgrid.readthedocs.io) or [Developers Technical Wiki](https://github.com/SACGF/variantgrid/wiki)
 
 .. toctree::
    :maxdepth: 2

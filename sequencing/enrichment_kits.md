@@ -1,9 +1,7 @@
 An EnrichmentKit is a lab method to enrich a sample for the DNA regions you are interested in.
 For instance an exome or custom gene capture kit, or amplicons.
 
-
-
-### Setup
+### EnrichmentKit Setup
 
 EnrichmentKits are automatically created based on directories flowcells are detected in via scanning sequencing dirs,
 and entries in the [sample_sheet](SampleSheet.csv)

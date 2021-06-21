@@ -1,4 +1,4 @@
-# Analysis - issues
+# Analysis - issues (admin only page)
 
 Admin only page - shows node failures
 

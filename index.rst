@@ -12,6 +12,14 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
 
 .. toctree::
    :maxdepth: 2
+   :caption: Admin:
+
+   admin/users
+   admin/server_status
+   admin/django_admin
+
+.. toctree::
+   :maxdepth: 2
    :caption: Sequencing:
 
    sequencing/scanning_and_auto_loading_sequencing_files
@@ -25,12 +33,6 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    annotation/annotation_configuration
    annotation/annotation_versions
    annotation/annotation_pipeline_runs
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Data:
-
-   data/internal_population_frequency
 
 .. toctree::
    :maxdepth: 2
@@ -56,8 +58,9 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    :maxdepth: 2
    :caption: Classification:
 
+   classification/classification_admin_pages
    classification/classification_report
-   classification/hgvs_issues
+
 
 
 Indices and tables

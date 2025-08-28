@@ -22,7 +22,7 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    :maxdepth: 2
    :caption: Sequencing:
 
-   sequencing/scanning_and_auto_loading_sequencing_files
+   sequencing/sequencing_data_and_automation
    sequencing/sample_sheet
    sequencing/enrichment_kits
 

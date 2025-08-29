@@ -23,7 +23,7 @@ The scan starts at /tau/data/clinical_hg38. If a top level directory here contai
 
 If a flowcell has ".variantgrid_skip_flowcell" in it, it is skipped (and all FastQ/BAM/VCF etc inside it)
 
-## Task / Queues
+## Running Scans
 
 Scans can be triggered manually by clicking the "Scan Disk for Sequencing Data" button, or run on a schedule (see below)
 

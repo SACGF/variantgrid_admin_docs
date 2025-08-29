@@ -28,36 +28,34 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    sequencing/sample_sheet
    sequencing/enrichment_kits
 
-<!--
-.. toctree::
-   :maxdepth: 2
-   :caption: Annotation:
+..
+    .. toctree::
+       :maxdepth: 2
+       :caption: Annotation:
 
-   annotation/annotation_configuration
-   annotation/annotation_versions
-   annotation/annotation_pipeline_runs
+       annotation/annotation_configuration
+       annotation/annotation_versions
+       annotation/annotation_pipeline_runs
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Genes:
+    .. toctree::
+       :maxdepth: 2
+       :caption: Genes:
 
-   genes/gene_coverage
-   genes/gene_lists
+       genes/gene_coverage
+       genes/gene_lists
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Patients:
+    .. toctree::
+       :maxdepth: 2
+       :caption: Patients:
 
-   patients/patient_record_system_integration
+       patients/patient_record_system_integration
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Analysis:
+    .. toctree::
+       :maxdepth: 2
+       :caption: Analysis:
 
-   analysis/analysis_issues
-   analysis/analysis_templates
-
--->
+       analysis/analysis_issues
+       analysis/analysis_templates
 
 .. toctree::
    :maxdepth: 2

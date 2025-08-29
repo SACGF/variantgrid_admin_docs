@@ -2,7 +2,7 @@
 
 To access scan info via web site, go via top menu option "Sequencing", then click "Manage disk scans" link
 
-The sequencing scans are stored in the database as *SeqAutoRun*. They have the following states: 
+The sequencing scans are stored in the database as *SeqAutoRun* and shown in a grid most recent first. They have the following states: 
 
 * **Created** - Scanning run created, but not yet run  
 * **Scanning Files** - Run "find" [scripts](https://github.com/SACGF/variantgrid/tree/vg3_sapath_prod/seqauto/scripts/tau) to produce a list of the sequencing data we are looking for. 
@@ -10,6 +10,10 @@ The sequencing scans are stored in the database as *SeqAutoRun*. They have the f
 * **Scripts and Jobs** - (Currently Disabled) Create + run scripts to produce missing data. Was only ever used to generate Illumina QC. Disabled as VMs mount sequencing data as read only filesystem   
 * **Finished** - Completed successfully
 * **Error** - Something went wrong. For more details, click "View SeqAuto Run" link in the left most column of grid. See Troubleshooting section below
+
+If a job died unexpectedly (server or worker shutdown, CTR+C on command line) then the status will be wrong, and the status when it died.
+
+To check if a scan is running, see the [Server Status](/admin/server_status.md) page
 
 ## Task / Queues
 
@@ -19,7 +23,7 @@ Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task:
 
 When you click a the manual scan button, or a job is scheduled, it's added to the *seqauto_single_worker* queue. There is only 1 worker for this queue, to ensure scans don't interfere with each other.
 
-You can see whether this is running and has any jobs on the [Server Status](admin/server_status.md) page
+You can see whether this is running and has any jobs on the [Server Status](/admin/server_status.md) page
 
 If you change the Python code or settings, (eg you fix a bug, or make a new deploy) you need to restart the worker: 
 
@@ -99,4 +103,7 @@ You'll need to restart celery beat (see above) for this to take effect
 
 ## Troubleshooting
 
-TODO
+See [sequencing scan trouble shooting](sequencing_scan_troubleshooting.md)
+
+
+

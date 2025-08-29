@@ -2,7 +2,7 @@
 
 To access scan info via web site, go via top menu option "Sequencing", then click "Manage disk scans" link
 
-The sequencing scans are stored in the database as *SeqAutoRun* and shown in a grid most recent first. They have the following states: 
+This page lists historical scans, most recent first, including status (Scanning Files/Finished/Error) and time stamps so you can track how long things take. They have the following states: 
 
 * **Created** - Scanning run created, but not yet run  
 * **Scanning Files** - Run "find" [scripts](https://github.com/SACGF/variantgrid/tree/vg3_sapath_prod/seqauto/scripts/tau) to produce a list of the sequencing data we are looking for. 
@@ -17,11 +17,17 @@ To check if a scan is running, see the [Server Status](../admin/server_status.md
 
 ## Task / Queues
 
+Scans can be triggered manually by clicking the "Scan Disk for Sequencing Data" button, or run on a schedule (see below)
+
+In both cases, a job is added to the *seqauto_single_worker* queue. There is only 1 worker for this queue, to ensure scans don't interfere with each other.
+
+If an auto scan is running, and you hit the "Scan" button, it'll trigger 2 manual scans once the auto scan is complete
+
+## Task / Queues
+
 Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task:
 
     seqauto.tasks.scan_run_jobs.scan_run_jobs
-
-When you click a the manual scan button, or a job is scheduled, it's added to the *seqauto_single_worker* queue. There is only 1 worker for this queue, to ensure scans don't interfere with each other.
 
 You can see whether this is running and has any jobs on the [Server Status](../admin/server_status.md) page
 

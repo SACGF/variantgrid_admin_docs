@@ -2,6 +2,8 @@
 
 The URLs are made via [Django REST Framework](https://www.django-rest-framework.org/) - so work by serializing the VG Django Models
 
+It's a JSON REST API (get/post JavaScript data structures to URLs) so can be called from any language, but we have a helper Python package vg_api available to simplify things (see below)
+
 ### URLs
 
 You can access the URLs via web browser, command line tool, or programming language library (such as requests in Python)

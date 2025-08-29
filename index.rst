@@ -23,6 +23,8 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    :caption: Sequencing:
 
    sequencing/sequencing_data_and_automation
+   sequencing/sequencing_scans
+   sequencing/sequencing_data_api
    sequencing/sample_sheet
    sequencing/enrichment_kits
 

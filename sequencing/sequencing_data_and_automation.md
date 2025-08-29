@@ -19,19 +19,14 @@ Scans can be triggered manually (via "Scan Disk for Sequencing Data" button), or
 
 You can view more information on a run via link "View SeqAuto Run" in the left most column. This is especially useful if a run failed, as you can see any errors or stack traces which may help you diagnose what went wrong. 
 
-TODO: scheduler, celery beat, services, logs, troubleshooting 
+See [Sequencing Scans](sequencing_scans.md)
 
-#### API
+#### Sequencing Data API
 
-To call the API, you need a user (created via Django Admin) and a [DRF](https://www.django-rest-framework.org/) API token, which is created on the server via admin or command line:
+VariantGrid has an API that allows clients to read and create sequencing data, and trigger VCF uploads.
 
-    python3 manage.py drf_create_token username
+It's a JSON REST API (get/post JavaScript data structures to URLs) so can be called from any language, but we have a helper Python package vg_api available to simplify things.
 
-The API is JSON REST (get/post JSON to URLs) but there is a helper Python package available 
+You need an administrator to create an API token for access.
 
-    python3 -m pip install variantgrid_api 
-
-For more details see:
-
-https://github.com/SACGF/variantgrid_api
-
+See [Sequencing Data API](sequencing_data_api.md)

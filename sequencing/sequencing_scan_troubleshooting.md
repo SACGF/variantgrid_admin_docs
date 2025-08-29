@@ -27,14 +27,14 @@ The first step is to work out what's happening. Look at the details page for the
 #### General tips for failed runs
 
 * Remember you can always disable a particular run using .variantgrid_skip_flowcell - this will allow you to keep scans going while you fix the particular run
-* If a sequencing scan fails during "create models" stage, it's possible the state of the record being processed is bad, for instance the GOIs or patients not properly linked to samples as described in [SampleSheet](sample_sheet.md) It's probably a good idea to delete the SequencingRun (through webapp) before restarting the next scan  
+* If a sequencing scan fails during "create models" stage, it's possible the state of the record being processed is bad, for instance the GOIs or patients not properly linked to samples as described in [SampleSheet](sample_sheet.md), but as timestamps and hash match it won't be loaded and fixed next time. It's probably a good idea to delete the SequencingRun (through webapp) before restarting the next scan  
 * If a scan fails, maybe give it another go and it'll work this time
 
 #### Weird one-off database integrity errors, file not found errors etc
 
-We scan files, then load existing ones, then process them for ~30 mins.
+We scan files, then load existing ones, then process them for ~10-30 mins.
 
-If one of the database files (eg someone deletes a SequencingRun) or files is deleted or moved during processing, things will fail.
+If someone moves or deletes a file on the disk, or deletes a SequencingRun on the web, we will expect the file/data to be there as our state is now out of date
 
 Example:
 
@@ -132,7 +132,7 @@ Example:
     KeyError: 'SampleID'
 ```
 
-This was due to older SampleSheet.csv code not handling diff version of sheet that had "Sample_ID"
+This was due to older SampleSheet.csv code not handling diff version of sheet that had "Sample_ID", and we needed to modify SampleSheet parser.
 
 Example:
 
@@ -154,4 +154,4 @@ If developer is away:
 * This is likely new code, so check git logs, can possibly revert change to previous version.
 * If it's something non-critical you can just delete the lines about getting and storing the barcode. Or catch the exception and continue on.
 
-That way we can continue to have services
+That way scans can continue to run in general, at the loss of a small amount of data (which we can fix upon developer returning)

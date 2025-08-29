@@ -28,6 +28,7 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
    sequencing/sample_sheet
    sequencing/enrichment_kits
 
+<!--
 .. toctree::
    :maxdepth: 2
    :caption: Annotation:
@@ -55,6 +56,8 @@ For normal users, see `VariantGrid user documentation <http://variantgrid.readth
 
    analysis/analysis_issues
    analysis/analysis_templates
+
+-->
 
 .. toctree::
    :maxdepth: 2

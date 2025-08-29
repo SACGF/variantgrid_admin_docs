@@ -4,7 +4,7 @@ This page is admin only.
 
 Access via clicking on username  (top right), then "Server Status"
 
-This page performs a number of checks, including checking the status of the celery workers
+This page performs a number of checks, including checking the status of the celery workers. They will be RED if the worker can't be found
 
 ![](../images/server_status.png "Server Status")
 

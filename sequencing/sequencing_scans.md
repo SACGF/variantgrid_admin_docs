@@ -13,7 +13,7 @@ The sequencing scans are stored in the database as *SeqAutoRun* and shown in a g
 
 If a job died unexpectedly (server or worker shutdown, CTR+C on command line) then the status will be wrong, and the status when it died.
 
-To check if a scan is running, see the [Server Status](/admin/server_status.md) page
+To check if a scan is running, see the [Server Status](../admin/server_status.md) page
 
 ## Task / Queues
 
@@ -23,7 +23,7 @@ Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task:
 
 When you click a the manual scan button, or a job is scheduled, it's added to the *seqauto_single_worker* queue. There is only 1 worker for this queue, to ensure scans don't interfere with each other.
 
-You can see whether this is running and has any jobs on the [Server Status](/admin/server_status.md) page
+You can see whether this is running and has any jobs on the [Server Status](../admin/server_status.md) page
 
 If you change the Python code or settings, (eg you fix a bug, or make a new deploy) you need to restart the worker: 
 

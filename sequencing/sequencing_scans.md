@@ -5,7 +5,7 @@ To access scan info via web site, go via top menu option "Sequencing", then clic
 This page lists historical scans, most recent first, including status (Scanning Files/Finished/Error) and time stamps so you can track how long things take. They have the following states: 
 
 * **Created** - Scanning run created, but not yet run  
-* **Scanning Files** - Run "find" [scripts](https://github.com/SACGF/variantgrid/tree/vg3_sapath_prod/seqauto/scripts/tau) to produce a list of the sequencing data we are looking for. 
+* **Scanning Files** - Run "find" scripts to produce a list of the sequencing data we are looking for. 
 * **Create Models** - Process scanned list of files to create database records. This produces what "should" be there (eg expected FastQ files given SampleSheet.csv) and sets the "data_state" according to whether the file was found in the scan 
 * **Scripts and Jobs** - (Currently Disabled) Create + run scripts to produce missing data. Was only ever used to generate Illumina QC. Disabled as VMs mount sequencing data as read only filesystem   
 * **Finished** - Completed successfully
@@ -15,19 +15,25 @@ If a job died unexpectedly (server or worker shutdown, CTR+C on command line) th
 
 To check if a scan is running, see the [Server Status](../admin/server_status.md) page
 
+## What gets searched
+
+To find the various file types, we run a bunch of [scripts](https://github.com/SACGF/variantgrid/tree/vg3_sapath_prod/seqauto/scripts/tau) that produce a text file listing the filenames
+
+The scan starts at /tau/data/clinical_hg38. If a top level directory here contains ".variantgrid_skip_flowcell" - all subdirectories are skipped
+
+If a flowcell has ".variantgrid_skip_flowcell" in it, it is skipped (and all FastQ/BAM/VCF etc inside it)
+
 ## Task / Queues
 
 Scans can be triggered manually by clicking the "Scan Disk for Sequencing Data" button, or run on a schedule (see below)
 
 In both cases, a job is added to the *seqauto_single_worker* queue. There is only 1 worker for this queue, to ensure scans don't interfere with each other.
 
-If an auto scan is running, and you hit the "Scan" button, it'll trigger 2 manual scans once the auto scan is complete
+If an auto scan is running, and you hit the "Scan" button, it'll add the scan onto the queue so a 2nd scan will run once the auto scan is complete
 
 ## Task / Queues
 
-Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task:
-
-    seqauto.tasks.scan_run_jobs.scan_run_jobs
+Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task ```seqauto.tasks.scan_run_jobs.scan_run_jobs```
 
 You can see whether this is running and has any jobs on the [Server Status](../admin/server_status.md) page
 
@@ -68,9 +74,7 @@ You can also manually execute a
 
     python3 manage.py scan_run_jobs 
 
-This also has the option to re-use a previous run's scan, if you want to avoid the "scanning files" step, and go straight to the "create models" step
-
-    --reuse-prev-scan-id=27260
+This also has the ```--reuse-prev-scan-id``` option to re-use a previous run's scan, if you want to avoid the "scanning files" step, and go straight to the "create models" step
 
 ## Logs
 

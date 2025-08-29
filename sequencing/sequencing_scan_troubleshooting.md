@@ -2,11 +2,11 @@
 
 ### Scans not running
 
-Check timestamps on the historical runs grid, when was it last run?
+Check timestamps on the historical runs grid to see when it was last run.
 
-Check seqauto_single_worker on server status page.
+Is the *seqauto_single_worker* OK on the [Server Status](../admin/server_status.md) page?
 
-On the serveR:
+On the server you can:
 
 * Check the logs
 * Check if processes are running:
@@ -18,15 +18,11 @@ ps aux | grep seqauto_single_worker
 ps aux | grep beat
 ```
 
-**Suggested Fixes**: Start and stop workers. If these fail, check system logs.
-
-If the workers fail, it is likely due to code/settings which will also fail if you open django shell
+**Suggested Fixes**: Start and stop workers. If these fail, check systemd logs, or you can probably recreate the same error by running ```python3 manage.py shell```
 
 ### Scans Failing
 
-The first step is to work out what's happening. Look at the details page for the most recently failed SeqAutoRun
-
-Hopefully it should give you a stack trace and the run that failed.
+The first step is to work out what's happening. Look at the details page for the most recently failed SeqAutoRun by clicking the "View SeqAuto Run" link in the left most column of grid on that row. Hopefully there should be a stack trace and it mentions the SequencingRun or directory that caused it to fail.
 
 #### General tips for failed runs
 

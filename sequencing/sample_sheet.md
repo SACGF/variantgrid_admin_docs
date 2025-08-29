@@ -10,7 +10,7 @@ VariantGrid allows storing key/values for a *SequencingSample* in *SequencingSam
 
 Because the columns are highly specific to each lab/disk setup, the core code raises a *sequencing_run_sample_sheet_created_signal* signal, which lab/deployment specific code can listen for and run  
 
-### CurrentSampleSheet
+#### CurrentSampleSheet
 
 People often modify sample sheets, to correct sample names etc. We reload SampleSheets (re-sent via API or reloaded in scan due to modification date/hash) 
 
@@ -18,7 +18,7 @@ SequencingRuns can have many SampleSheets but only one CurrentSampleSheet - whic
 
 When a SampleSheet is assigned to a sequencing run (1st time, or later modifications) the signal *sequencing_run_current_sample_sheet_changed* is raised
 
-### SA Pathology Special Columns
+#### SA Pathology Special Columns
 
 **Panel** , **PanelVersion** - These are used to create an *EnrichmentKit* if it doesn't exist, and assign it to SequencingSample. If all samples are assigned to the same kit, the SequencingRun is also assigned to that kit. SA Path VG deployment handles via listening for *sequencing_run_sample_sheet_created_signal* and handling via *sapath.signals.sapath_enrichment_kits.sapath_sample_sheet_created_handler*
 

@@ -15,8 +15,6 @@ If a job died unexpectedly (server or worker shutdown, CTR+C on command line) th
 
 To check if a scan is running, see the [Server Status](../admin/server_status) page
 
-Another way to do links is: {doc}`../admin/server_status`
-
 ## Task / Queues
 
 Scanning is done as a [Celery](https://docs.celeryq.dev/en/stable/) task:

@@ -70,11 +70,13 @@ This will add the scan job to the queue at 6am and 7pm. Celery beat is running a
 
 ## Command line
 
-You can also manually execute a 
+You can also manually execute on the VM, in VG dir as variantgrid user via:
 
     python3 manage.py scan_run_jobs 
 
 This also has the ```--reuse-prev-scan-id``` option to re-use a previous run's scan, if you want to avoid the "scanning files" step, and go straight to the "create models" step
+
+Scans triggered on the command line are run immediately with logs displayed to console. They are not in a celery task, so don't wait on queue (so are not isolated). They will have no "Task ID" (which is usually celery job)  
 
 ## Logs
 

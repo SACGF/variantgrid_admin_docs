@@ -26,7 +26,11 @@ The first step is to work out what's happening. Look at the details page for the
 
 Hopefully it should give you a stack trace and the run that failed.
 
-Remember you can always disable a particular run using .variantgrid_skip_flowcell - this will allow you to keep scans going while you fix the particular run
+#### General tips for failed runs
+
+* Remember you can always disable a particular run using .variantgrid_skip_flowcell - this will allow you to keep scans going while you fix the particular run
+* If a sequencing scan fails during "create models" stage, it's possible the state of the record being processed is bad, for instance the GOIs or patients not properly linked to samples as described in [SampleSheet](sample_sheet.md) It's probably a good idea to delete the SequencingRun (through webapp) before restarting the next scan  
+* If a scan fails, maybe give it another go and it'll work this time
 
 #### Weird one-off database integrity errors, file not found errors etc
 
